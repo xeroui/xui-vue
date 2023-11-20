@@ -3,15 +3,28 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/xui.umd.cjs",
+  "module": "./dist/xui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/xui.js",
+      "require": "./dist/xui.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "types": "vue-tsc ",
     "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.3.8"
   },
   "devDependencies": {
+    "@types/node": "^20.2.5",
     "@vitejs/plugin-vue": "^4.5.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",

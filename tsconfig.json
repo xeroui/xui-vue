@@ -11,8 +11,10 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "preserve",
+    "outDir": "dist",
+    "declaration": true,
+    "exclude": ["src/App.vue", "src/main.ts"],
 
     /* Linting */
     "strict": true,
