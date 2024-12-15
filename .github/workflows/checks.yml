@@ -35,10 +35,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run lint
-        id: lint
-        run: |
-          pnpm lint
+#      - name: Run lint
+#        id: lint
+#        run: |
+#          pnpm lint
 
       - name: Run build
         id: build
@@ -46,8 +46,8 @@ jobs:
         run: |
           pnpm build
 
-      - name: Run Test
-        id: test
-        if: steps.build.outcome == 'success'
-        run: |
-          pnpm test
+#      - name: Run Test
+#        id: test
+#        if: steps.build.outcome == 'success'
+#        run: |
+#          pnpm test

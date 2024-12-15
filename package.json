@@ -33,5 +33,20 @@
     "typescript": "^5.7.2",
     "vite": "^6.0.3",
     "vue-tsc": "^2.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/arafatkn/xui-vue.git"
+  },
+  "keywords": [
+    "express",
+    "trim",
+    "strings"
+  ],
+  "author": "Arafat Islam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arafatkn/xui-vue/issues"
+  },
+  "homepage": "https://github.com/arafatkn/xui-vue#readme"
 }
