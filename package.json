@@ -12,7 +12,7 @@
       "import": "./dist/xui-vue.js",
       "require": "./dist/xui-vue.umd.cjs"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/xui-vue.css"
   },
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -41,15 +41,18 @@
     "type": "git",
     "url": "git+ssh://git@github.com/arafatkn/xui-vue.git"
   },
-  "keywords": [
-    "express",
-    "trim",
-    "strings"
-  ],
   "author": "Arafat Islam",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/arafatkn/xui-vue/issues"
   },
-  "homepage": "https://github.com/arafatkn/xui-vue#readme"
+  "homepage": "https://github.com/arafatkn/xui-vue#readme",
+  "keywords": [
+    "vue",
+    "tailwindcss",
+    "vite",
+    "ui",
+    "library"
+  ],
+  "description": "A Vue 3 UI library with TailwindCSS"
 }
