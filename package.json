@@ -1,15 +1,16 @@
 {
-  "name": "xui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "xui-vue",
+  "version": "0.1.0",
   "type": "module",
-  "files": ["dist"],
-  "main": "./dist/xui.umd.cjs",
-  "module": "./dist/xui.js",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/xui-vue.umd.cjs",
+  "module": "./dist/xui-vue.js",
   "exports": {
     ".": {
-      "import": "./dist/xui.js",
-      "require": "./dist/xui.umd.cjs"
+      "import": "./dist/xui-vue.js",
+      "require": "./dist/xui-vue.umd.cjs"
     },
     "./style.css": "./dist/style.css"
   },
@@ -18,16 +19,19 @@
     "dev": "vite",
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "types": "vue-tsc ",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fmt": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\""
   },
   "dependencies": {
-    "vue": "^3.3.8"
+    "tailwind-merge": "^2.5.5",
+    "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@types/node": "^20.2.5",
-    "@vitejs/plugin-vue": "^4.5.0",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "vue-tsc": "^1.8.22"
+    "@types/node": "^20.17.10",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vue-tsc": "^2.1.10"
   }
 }

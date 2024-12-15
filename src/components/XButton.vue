@@ -1,14 +1,18 @@
 <template>
   <button
       type="button"
-      :class="[
-      `inline-flex items-center justify-center ${
-        sizes[size] ?? ''
-      } border font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${colors[color] ?? ''} ${
-        block ? 'w-full' : ''
-      }`,
-      rounded ? 'rounded-full' : '',
-    ]"
+      :disabled
+      :class="
+      twMerge(
+        'inline-flex items-center justify-center gap-2',
+        sizes[size] ?? '',
+        'border font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2',
+        colors[color] ?? '',
+        block && 'w-full',
+        rounded && 'rounded-full',
+        disabled && 'disabled:cursor-not-allowed disabled:opacity-50'
+      )
+    "
   >
     <svg
         v-if="loading"
@@ -25,13 +29,15 @@
       ></path>
     </svg>
     <component v-if="icon" :is="icon" class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-    {{ label }}
+    <span v-if="label">{{ label }}</span>
     <slot />
-    <component v-if="postIcon" :is="postIcon" class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+    <component v-if="postIcon" :is="postIcon" class="ml-2 h-4 w-4" aria-hidden="true" />
   </button>
 </template>
 
 <script setup lang="ts">
+import { twMerge } from 'tailwind-merge';
+
 type Props = {
   color?: 'default' | 'primary' | 'secondary' | 'info' | 'warning' | 'danger';
   label?: string;
@@ -41,15 +47,19 @@ type Props = {
   size?: 'small' | 'medium' | 'normal' | 'large';
   block?: boolean;
   rounded?: boolean;
+  disabled?: boolean;
 };
 
-withDefaults(defineProps<Props>(), { color: 'default', size: 'normal', loading: false, block: false, rounded: false });
+withDefaults(defineProps<Props>(), {
+  color: 'default',
+  size: 'normal',
+});
 
 const colors = {
   default: '',
   primary: 'border-transparent bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500',
   secondary: 'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-indigo-500',
-  info: 'border-transparent bg-green-600 text-white hover:bg-green-700 focus:ring-green-500',
+  info: 'border-transparent bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500',
   success: 'border-transparent bg-green-600 text-white hover:bg-green-700 focus:ring-green-500',
   warning: 'border-transparent bg-lime-600 text-white hover:bg-lime-700 focus:ring-lime-500',
   danger: 'border-transparent bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
