@@ -7,19 +7,19 @@ XUI is a collection of UI components for Vue.js built with TailwindCSS. It is de
 To install XUI, you can use npm or yarn:
 
 ```bash
-npm install xui-vue
+npm install @xeroui/vue
 ```
 
 or
 
 ```bash
-yarn add xui-vue
+yarn add @xeroui/vue
 ```
 
 or
     
 ```bash
-pnpm add xui-vue
+pnpm add @xeroui/vue
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ pnpm add xui-vue
 To use XUI components in your Vue.js project, you need to import the components you want to use and register them as global components in your main Vue instance.
 
 ```javascript
-import { XButton } from 'xui-vue';
+import { XButton } from '@xeroui/vue';
 
 <x-button>Click me</x-button>
 ```

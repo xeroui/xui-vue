@@ -1,6 +1,6 @@
 {
-  "name": "xui-vue",
-  "version": "0.0.2",
+  "name": "@xeroui/vue",
+  "version": "0.0.1",
   "type": "module",
   "files": [
     "dist"
@@ -39,14 +39,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/arafatkn/xui-vue.git"
+    "url": "git+ssh://git@github.com/xeroui/xui-vue.git"
   },
   "author": "Arafat Islam",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/arafatkn/xui-vue/issues"
+    "url": "https://github.com/xeroui/xui-vue/issues"
   },
-  "homepage": "https://github.com/arafatkn/xui-vue#readme",
+  "homepage": "https://github.com/xeroui/xui-vue#readme",
   "keywords": [
     "vue",
     "tailwindcss",
