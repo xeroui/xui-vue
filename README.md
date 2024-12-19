@@ -2,6 +2,9 @@
 
 XUI is a collection of UI components for Vue.js built with TailwindCSS. It is designed to be a lightweight and customizable component library that can be easily integrated into your Vue.js project.
 
+## Precautions
+This project is still in development and is not yet ready for production use. Please use with caution.
+
 ## Installation
 
 To install XUI, you can use npm or yarn:
@@ -31,3 +34,5 @@ import { XButton } from '@xeroui/vue';
 
 <x-button>Click me</x-button>
 ```
+
+Documentation is ongoing and will be available soon.

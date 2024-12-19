@@ -1,6 +1,6 @@
 {
   "name": "@xeroui/vue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "files": [
     "dist"
@@ -23,10 +23,14 @@
     "fmt": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\""
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.2.0",
+    "lodash": "^4.17.21",
     "tailwind-merge": "^2.5.5",
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.13",
     "@types/node": "^20.17.10",
     "@vitejs/plugin-vue": "^5.2.1",
     "autoprefixer": "^10.4.20",
