@@ -1,6 +1,6 @@
 {
   "name": "@xeroui/vue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "files": [
     "dist"
@@ -15,6 +15,7 @@
     "./style.css": "./dist/xui-vue.css"
   },
   "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build && vue-tsc --emitDeclarationOnly",
