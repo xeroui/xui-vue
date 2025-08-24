@@ -10,7 +10,7 @@
         :aria-invalid="hasErrors"
       ></textarea>
       <div v-if="hasErrors" class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-        <ExclamationCircleIcon class="h-5 w-5 text-red-500" aria-hidden="true" />
+        <CircleAlert class="h-5 w-5 text-red-500" aria-hidden="true" />
       </div>
     </div>
     <p v-if="hasErrors" class="mt-2 text-sm text-red-600">
@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { ExclamationCircleIcon } from '@heroicons/vue/20/solid';
+import { CircleAlert } from 'lucide-vue-next';
 import { computed } from 'vue';
 import XFormLabel from './form/XFormLabel.vue';
 

@@ -1,11 +1,11 @@
 <template>
   <div :class="['border-l-4 p-4', colors[type]]">
     <div class="flex">
-      <div class="flex-shrink-0">
-        <CheckCircleIcon v-if="type === 'success'" class="h-5 w-5 text-green-400" aria-hidden="true" />
-        <XCircleIcon v-if="type === 'error'" class="h-5 w-5 text-red-400" aria-hidden="true" />
-        <ExclamationTriangleIcon v-if="type === 'warning'" class="h-5 w-5 text-yellow-400" aria-hidden="true" />
-        <InformationCircleIcon v-if="type === 'info'" class="h-5 w-5 text-blue-400" aria-hidden="true" />
+      <div class="shrink-0">
+        <CircleCheckIcon v-if="type === 'success'" class="h-5 w-5 text-green-400" aria-hidden="true" />
+        <CircleXIcon v-if="type === 'error'" class="h-5 w-5 text-red-400" aria-hidden="true" />
+        <TriangleAlertIcon v-if="type === 'warning'" class="h-5 w-5 text-yellow-400" aria-hidden="true" />
+        <CircleAlertIcon v-if="type === 'info'" class="h-5 w-5 text-blue-400" aria-hidden="true" />
       </div>
       <div class="ml-3">
         <p class="text-sm">
@@ -17,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { CheckCircleIcon, XCircleIcon, ExclamationTriangleIcon, InformationCircleIcon } from '@heroicons/vue/24/outline';
+import { CircleCheckIcon, CircleXIcon, TriangleAlertIcon, CircleAlertIcon } from 'lucide-vue-next';
 
 type Props = {
-  type: 'success' | 'error' | 'warning' | 'info',
+  type: 'success' | 'error' | 'warning' | 'info';
 };
 
 defineProps<Props>();

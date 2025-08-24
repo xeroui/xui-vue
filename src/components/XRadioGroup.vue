@@ -24,7 +24,7 @@
           'flex items-center justify-center rounded-md px-3 py-2.5 text-sm font-medium sm:flex-1',
         ]"
       >
-        <CheckCircleIcon v-if="showCheck" :class="[!checked ? 'invisible' : '', 'h-5 w-5 mr-2']" aria-hidden="true" />
+        <CircleCheckIcon v-if="showCheck" :class="[!checked ? 'invisible' : '', 'h-5 w-5 mr-2']" aria-hidden="true" />
         {{ option.label }}
       </div>
     </RadioGroupOption>
@@ -32,7 +32,7 @@
 </template>
 <script setup lang="ts">
 import { RadioGroup, RadioGroupOption } from '@headlessui/vue';
-import { CheckCircleIcon } from '@heroicons/vue/24/solid';
+import { CircleCheckIcon } from 'lucide-vue-next';
 
 type Props = {
   options: { label: string; value: string | number; disabled?: boolean }[];

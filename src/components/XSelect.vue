@@ -13,7 +13,7 @@
       >
         <span class="block truncate">{{ currentLabel ?? placeholder }}</span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-          <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+          <ChevronsUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
         </span>
       </ListboxButton>
 
@@ -61,7 +61,7 @@
 
 <script setup lang="ts">
 import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid';
+import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next';
 import { computed } from 'vue';
 
 type Option = { label?: string; value?: any } & Record<string, any>;
