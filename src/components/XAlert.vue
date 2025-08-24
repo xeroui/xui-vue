@@ -1,16 +1,16 @@
 <template>
-  <div :class="['border-l-4 p-4', colors[type]]">
+  <div :class="['border-l-4 p-4', colors[type] ?? '']">
     <div class="flex">
       <div class="shrink-0">
-        <CircleCheckIcon v-if="type === 'success'" class="h-5 w-5 text-green-400" aria-hidden="true" />
-        <CircleXIcon v-if="type === 'error'" class="h-5 w-5 text-red-400" aria-hidden="true" />
-        <TriangleAlertIcon v-if="type === 'warning'" class="h-5 w-5 text-yellow-400" aria-hidden="true" />
-        <CircleAlertIcon v-if="type === 'info'" class="h-5 w-5 text-blue-400" aria-hidden="true" />
+        <component v-if="icon" :is="icon" class="h-5 w-5" aria-hidden="true" />
+        <CircleCheckIcon v-else-if="type === 'success'" class="h-5 w-5 text-success-400" aria-hidden="true" />
+        <CircleXIcon v-else-if="type === 'danger'" class="h-5 w-5 text-danger-400" aria-hidden="true" />
+        <TriangleAlertIcon v-else-if="type === 'warning'" class="h-5 w-5 text-warning-400" aria-hidden="true" />
+        <CircleAlertIcon v-else class="h-5 w-5 text-blue-400" aria-hidden="true" />
       </div>
       <div class="ml-3">
-        <p class="text-sm">
-          <slot></slot>
-        </p>
+        <p v-if="message" class="text-sm">{{ message }}</p>
+        <slot />
       </div>
     </div>
   </div>
@@ -18,17 +18,23 @@
 
 <script setup lang="ts">
 import { CircleCheckIcon, CircleXIcon, TriangleAlertIcon, CircleAlertIcon } from 'lucide-vue-next';
+import { ColorType } from '../types';
+import { FunctionalComponent } from 'vue';
 
 type Props = {
-  type: 'success' | 'error' | 'warning' | 'info';
+  type: ColorType;
+  title?: string;
+  message?: string;
+  icon?: FunctionalComponent;
 };
 
 defineProps<Props>();
 
 const colors = {
-  success: 'border-green-400 bg-green-50 text-green-700',
-  error: 'border-red-400 bg-red-50 text-red-700',
-  warning: 'border-yellow-400 bg-yellow-50 text-yellow-700',
-  info: 'border-blue-400 bg-blue-50 text-blue-700',
+  primary: 'border-primary-400 bg-primary-50 text-primary-700',
+  secondary: 'border-secondary-400 bg-secondary-50 text-secondary-700',
+  success: 'border-success-400 bg-success-50 text-success-700',
+  danger: 'border-danger-400 bg-danger-50 text-danger-700',
+  warning: 'border-warning-400 bg-warning-50 text-warning-700',
 };
 </script>

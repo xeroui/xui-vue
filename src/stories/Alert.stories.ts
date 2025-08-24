@@ -12,30 +12,37 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Success: Story = {
+export const Primary: Story = {
   args: {
-    type: 'success',
-    default: 'This is a success alert message.',
+    type: 'primary',
+    message: 'This is an primary alert message.',
   },
 };
 
-export const Error: Story = {
+export const Secondary: Story = {
   args: {
-    type: 'error',
-    default: 'This is an error alert message.',
+    type: 'secondary',
+    message: 'This is an secondary alert message.',
+  },
+};
+
+export const Success: Story = {
+  args: {
+    type: 'success',
+    message: 'This is a success alert message.',
   },
 };
 
 export const Warning: Story = {
   args: {
     type: 'warning',
-    default: 'This is a warning alert message.',
+    message: 'This is a warning alert message.',
   },
 };
 
-export const Info: Story = {
+export const Danger: Story = {
   args: {
-    type: 'info',
-    default: 'This is an info alert message.',
+    type: 'danger',
+    message: 'This is an error alert message.',
   },
 };

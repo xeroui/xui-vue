@@ -1,6 +1,15 @@
 <template>
-  <span :class="`inline-flex items-center rounded-full font-medium ${sizes[size] ?? ''} ${colors[color] ?? ''}`"
-    ><component v-if="icon" :is="icon" class="h-4 w-4 mr-1" aria-hidden="true" />
+  <span
+    :class="
+      twMerge(
+        `inline-flex items-center rounded-full font-medium`,
+        sizes[size] ?? '',
+        (outline ? outlineColors : colors)[color] ?? '',
+        props.class
+      )
+    "
+  >
+    <component v-if="icon" :is="icon" class="h-4 w-4 mr-1" aria-hidden="true" />
     <span v-if="label">{{ label }}</span>
     <slot />
     <component v-if="postIcon" :is="postIcon" class="ml-1 h-4 w-4" aria-hidden="true" />
@@ -8,23 +17,35 @@
 </template>
 
 <script setup lang="ts">
+import { ColorType, SizeType } from '../types';
+import { twMerge } from 'tailwind-merge';
+
 type Props = {
-  color?: 'primary' | 'secondary' | 'info' | 'warning' | 'danger';
+  color?: ColorType;
   label?: string;
   icon?: any;
   postIcon?: any;
-  size?: 'small' | 'medium' | 'normal' | 'large';
+  size?: SizeType;
+  outline?: boolean;
+  class?: string;
 };
 
-withDefaults(defineProps<Props>(), { color: 'info', size: 'normal' });
+const props = withDefaults(defineProps<Props>(), { color: 'primary', size: 'normal' });
 
 const colors = {
-  primary: 'bg-indigo-100 text-indigo-800',
-  secondary: 'bg-gray-100 text-gray-800',
-  info: 'bg-pink-100 text-pink-800',
-  success: 'bg-yellow-100 text-yellow-800',
-  warning: 'bg-lime-100 text-lime-800',
-  danger: 'bg-red-100 text-red-800',
+  primary: 'bg-primary-100 text-primary-800',
+  secondary: 'bg-secondary-100 text-secondary-800',
+  success: 'bg-success-100 text-success-800',
+  warning: 'bg-warning-100 text-warning-800',
+  danger: 'bg-danger-100 text-danger-800',
+};
+
+const outlineColors = {
+  primary: 'bg-white text-primary-600 border border-primary-200',
+  secondary: 'bg-white text-secondary-600 border border-secondary-200',
+  success: 'bg-white text-success-600 border border-success-200',
+  warning: 'bg-white text-warning-600 border border-warning-200',
+  danger: 'bg-white text-danger-600 border border-danger-200',
 };
 
 const sizes = {

@@ -26,13 +26,6 @@ export const Secondary: Story = {
   },
 };
 
-export const Info: Story = {
-  args: {
-    color: 'info',
-    label: 'Badge',
-  },
-};
-
 export const Warning: Story = {
   args: {
     color: 'warning',

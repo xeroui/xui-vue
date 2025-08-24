@@ -1,13 +1,13 @@
 <template>
   <button
-    type="button"
+    :type="type"
     :disabled
     :class="
       twMerge(
         'inline-flex items-center justify-center gap-2',
         sizes[size] ?? '',
-        'border font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2',
-        colors[color] ?? '',
+        'border border-transparent font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2',
+        (outline ? outlineColors : colors)[color] ?? '',
         block && 'w-full',
         rounded && 'rounded-full',
         disabled && 'disabled:cursor-not-allowed disabled:opacity-50'
@@ -37,32 +37,44 @@
 
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge';
+import { ColorType, SizeType } from '../types';
 
 type Props = {
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger';
+  type?: 'button' | 'submit' | 'reset';
+  color?: 'default' | ColorType;
   label?: string;
   loading?: boolean;
   icon?: any;
   postIcon?: any;
-  size?: 'small' | 'medium' | 'normal' | 'large';
+  size?: SizeType;
   block?: boolean;
   rounded?: boolean;
   disabled?: boolean;
+  outline?: boolean;
 };
 
 withDefaults(defineProps<Props>(), {
+  type: 'button',
   color: 'default',
   size: 'normal',
 });
 
 const colors = {
-  default: '',
-  primary: 'border-transparent bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500',
-  secondary: 'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-indigo-500',
-  info: 'border-transparent bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500',
-  success: 'border-transparent bg-green-600 text-white hover:bg-green-700 focus:ring-green-500',
-  warning: 'border-transparent bg-lime-600 text-white hover:bg-lime-700 focus:ring-lime-500',
-  danger: 'border-transparent bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+  default: 'bg-gray-900 text-white hover:bg-gray-700 focus:ring-gray-500',
+  primary: 'bg-primary text-primary-foreground hover:bg-primary-700 focus:ring-primary-500',
+  secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary-700 focus:ring-secondary-500',
+  success: 'bg-success text-success-foreground hover:bg-success-700 focus:ring-success-500',
+  warning: 'bg-warning text-warning-foreground hover:bg-warning-700 focus:ring-warning-500',
+  danger: 'bg-danger text-danger-foreground hover:bg-danger-700 focus:ring-danger-500',
+};
+
+const outlineColors = {
+  default: 'bg-white text-gray-700 hover:bg-gray-50 border-gray-300 focus:ring-indigo-500',
+  primary: 'bg-white text-primary border-primary-200 hover:bg-primary-50 focus:ring-primary-500',
+  secondary: 'bg-white text-secondary border-secondary-200 hover:bg-secondary-50 focus:ring-secondary-500',
+  success: 'bg-white text-success border-success-200 hover:bg-success-50 focus:ring-success-500',
+  warning: 'bg-white text-warning border-warning-200 hover:bg-warning-50 focus:ring-warning-500',
+  danger: 'bg-white text-danger border-danger-200 hover:bg-danger-50 focus:ring-danger-500',
 };
 
 const sizes = {
